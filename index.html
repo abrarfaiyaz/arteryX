@@ -37,25 +37,35 @@
       );
     };
 
-    // Home Tab Component (Updated: Removed GraphBackground, Styled Splash Image)
+    // Home Tab Component (Updated: Removed Red Border, Modern Layout, Added Features)
     const Home = () => (
-      <div className="relative text-center text-white p-10 h-screen flex flex-col justify-center items-center bg-gray-900">
-        <div className="z-10">
-          <h2 className="text-5xl font-bold mb-4 text-yellow-400">Welcome to ArteryX v1.0</h2>
-          <p className="text-xl mb-6 text-gray-300">Advanced Artery Extraction Toolbox for Medical Imaging</p>
-          <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 mb-6">
+      <div className="relative text-white p-10 min-h-screen bg-gray-900 flex flex-col items-center justify-center">
+        <div className="text-center z-10">
+          <h2 className="text-5xl font-bold mb-6 text-yellow-400">Welcome to ArteryX v1.0</h2>
+          <p className="text-xl mb-8 text-gray-300">Advanced Artery Extraction Toolbox for Medical Imaging</p>
+          <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8">
+            <img 
+              src="assets/imgs/splash.png" 
+              alt="ArteryX Splash" 
+              className="max-w-xs md:max-w-md rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+            />
+            <div className="text-left max-w-md">
+              <h3 className="text-2xl font-semibold text-red-500 mb-4">Key Features:</h3>
+              <ul className="list-disc list-inside text-lg text-gray-300 space-y-2">
+                <li>Solves the dangling or disconnected artery issue in the semi-automated approaches.</li>
+                <li>6x faster processing than state of the art.</li>
+                <li>Shows greater sensitivity in CSVD cohort.</li>
+              </ul>
+            </div>
+          </div>
+          <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 mt-8">
             Get Started
           </button>
-          <img 
-            src="assets/imgs/splash.png" 
-            alt="ArteryX Splash" 
-            className="max-w-lg mx-auto rounded-lg shadow-lg border-4 border-red-500"
-          />
         </div>
       </div>
     );
 
-    // About Tab Component (Updated: Added Dummy Pipeline Image)
+    // About Tab Component (With Dummy Pipeline Image)
     const About = () => (
       <div className="bg-gray-900 text-white p-10 min-h-screen">
         <h2 className="text-4xl font-bold mb-6 text-yellow-400">About ArteryX</h2>
@@ -153,7 +163,7 @@
           <div>
             <p className="text-lg text-gray-300">ArteryX v1.0 (MacOS)</p>
             <p className="text-sm text-gray-400 mb-2">Size: 460 MB | Requirements: macOS 11.0 or later, 8GB RAM, GPU with 2GB VRAM</p>
-            <a href="ArteryX_webinstaller_macOS.app.zip" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 inline-block">
+            <a href="https://rochester.box.com/s/zf9yb4autxrb8glzvcl9dd25pm03ptzx" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 inline-block">
               Download for MacOS
             </a>
           </div>
