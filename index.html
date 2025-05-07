@@ -154,13 +154,13 @@
           <div>
             <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 2: Preparing Your Data</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              ArteryX supports DICOM and NIfTI formats. Convert your 3D medical imaging data into one of these formats using tools like 3D Slicer or ITK-SNAP. Ensure your data resolution is at least 512x512x512 for best results.
+              ArteryX works directly with NIfTI formats that are structured in BIDS directory format. Convert your 3D MRA data into NIFTI using dcm2niix and remove the skull extraction with bet2 (in fsl toolbox). ArteryX has been tested for the following resolution - 0.52x0.52x0.5; 0.26x0.26x0.5; 0.52x0.52x0.8.
             </p>
           </div>
           <div>
             <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 3: Loading and Preprocessing</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              Launch ArteryX and click "File > Import Data". Select your imaging file and wait for the data to load. Use the preprocessing tools to adjust contrast and remove noise. Recommended settings: Contrast Enhancement = 1.5, Noise Reduction Filter = Gaussian (sigma = 1.0).
+              Launch ArteryX and input subject and session name in the following format- [SUBJECTNAME/SESSION] eg. RN009/bsl , The toolbox will pop-up configuration window (if one is not already set) and ask for location of the BIDS NIFTY directory of the subject. Select the directory and the toolbox will start analyzing the data.
             </p>
           </div>
           <div>
@@ -172,18 +172,18 @@
           <div>
             <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 5: 3D Visualization</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              Once segmentation is complete, switch to the "3D View" tab. Use the mouse to rotate and zoom into the arterial model. Adjust the rendering settings (e.g., opacity = 0.8, color mapping = Red-Green) for better visualization.
+              Once segmentation is complete, ensure it looks good with the code provided in the terminal console. Click on the next step "3D Viewer" link. Use the mouse to rotate and zoom into the arterial model. Adjust the rendering settings (e.g., node-size = 0.8 with +/-) for better visualization. Landmark the nodes switching to node tab at the bottom right corner of the screen. 
             </p>
           </div>
           <div>
             <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 6: Exporting Results</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              Go to "File > Export" to save your segmented arteries as a 3D model (STL format) or as a dataset (CSV format for centerline coordinates). You can also export screenshots of the 3D view for presentations by selecting "Export Image".
+             Once the landmarking is complete, hit Control+S to save the landmarkings as JSON and load this file to complete the rest of the feature extraction.
             </p>
           </div>
         </div>
         <p className="text-sm sm:text-lg mt-4 sm:mt-6 text-gray-300">
-          For advanced usage, refer to the user manual included in the download package or contact at faiyaz_abrar@icloud.com
+          For advanced usage or implementation of the feature class, refer to the user manual included in the download package or contact at faiyaz_abrar@icloud.com
         </p>
       </div>
     );
@@ -193,7 +193,7 @@
       <div className="bg-gray-900 text-white p-4 sm:p-10 min-h-screen">
         <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Downloads for ArteryX v1.0</h2>
         <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
-          Download ArteryX v1.0 for your operating system below. Each package includes the software, user manual, and sample datasets to get you started.
+          Download ArteryX v1.0 for your operating system below. Each package includes the software, and readme file. The sample datasets will be included soon to get you started. 
         </p>
         <div className="space-y-6">
           <div>
