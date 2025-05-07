@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArteryX - Artery Extraction Toolbox</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.22.5/babel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // Navigation Component
+    const NavBar = () => {
+      const [activeTab, setActiveTab] = useState('Home');
+      return (
+        <nav className="bg-gray-800 p-4 flex justify-between items-center shadow-lg">
+          <div className="flex items-center">
+            <img src="https://yourdomain.com/arteryx-logo.png" alt="ArteryX Logo" className="h-12 mr-4" />
+            <h1 className="text-2xl font-bold text-yellow-400">ArteryX</h1>
+          </div>
+          <div className="space-x-4">
+            {['Home', 'About', 'Tutorial', 'Downloads'].map(tab => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`text-lg ${activeTab === tab ? 'text-red-500 border-b-2 border-red-500' : 'text-gray-300'} hover:text-red-400 transition duration-300 px-2 py-1`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </nav>
+      );
+    };
+
+    // Animated Graph Background Component using p5.js
+    const GraphBackground = () => {
+      useEffect(() => {
+        const sketch = (p) => {
+          let points = [];
+          let numPoints = 50;
+          let speed = 0.02;
+
+          p.setup = () => {
+            p.createCanvas(p.windowWidth, p.windowHeight);
+            p.stroke(100, 255, 100, 50);
+            p.strokeWeight(1);
+            for (let i = 0; i < numPoints; i++) {
+              points.push({
+                x: p.random(p.width),
+                y: p.random(p.height),
+                z: p.random(p.height),
+                dx: p.random(-speed, speed),
+                dy: p.random(-speed, speed),
+                dz: p.random(-speed, speed)
+              });
+            }
+          };
+
+          p.draw = () => {
+            p.background(30, 30, 50, 50);
+            for (let i = 0; i < points.length; i++) {
+              let p1 = points[i];
+              p1.x += p1.dx;
+              p1.y += p1.dy;
+              p1.z += p1.dz;
+
+              if (p1.x < 0 || p1.x > p.width) p1.dx *= -1;
+              if (p1.y < 0 || p1.y > p.height) p1.dy *= -1;
+              if (p1.z < 0 || p1.z > p.height) p1.dz *= -1;
+
+              for (let j = i + 1; j < points.length; j++) {
+                let p2 = points[j];
+                let d = p.dist(p1.x, p1.y, p2.x, p2.y);
+                if (d < 100) {
+                  p.line(p1.x, p1.y, p2.x, p2.y);
+                }
+              }
+              p.stroke(255, 100, 100);
+              p.point(p1.x, p1.y);
+            }
+          };
+
+          p.windowResized = () => {
+            p.resizeCanvas(p.windowWidth, p.windowHeight);
+          };
+        };
+        new p5(sketch);
+      }, []);
+      return null;
+    };
+
+    // Home Tab Component
+    const Home = () => (
+      <div className="relative text-center text-white p-10 h-screen flex flex-col justify-center items-center">
+        <GraphBackground />
+        <div className="absolute z-10">
+          <h2 className="text-5xl font-bold mb-4 text-yellow-400">Welcome to ArteryX v1.0</h2>
+          <p className="text-xl mb-6 text-gray-300">Advanced Artery Extraction Toolbox for Medical Imaging</p>
+          <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300">
+            Get Started
+          </button>
+        </div>
+      </div>
+    );
+
+    // About Tab Component
+    const About = () => (
+      <div className="bg-gray-900 text-white p-10 min-h-screen">
+        <h2 className="text-4xl font-bold mb-6 text-yellow-400">About ArteryX</h2>
+        <p className="text-lg mb-4 text-gray-300">
+          ArteryX is a state-of-the-art toolbox designed for extracting and visualizing arterial structures from 3D medical imaging data.
+          With advanced algorithms and an intuitive interface, ArteryX helps researchers and medical professionals analyze vascular networks with precision.
+        </p>
+        <p className="text-lg text-gray-300">
+          Version 1.0 offers robust features for artery segmentation, 3D visualization, and data export, making it an essential tool for cardiovascular research.
+        </p>
+      </div>
+    );
+
+    // Updated Tutorial Tab Component with Dummy Content
+    const Tutorial = () => (
+      <div className="bg-gray-900 text-white p-10 min-h-screen">
+        <h2 className="text-4xl font-bold mb-6 text-yellow-400">Tutorial for ArteryX v1.0</h2>
+        <p className="text-lg mb-4 text-gray-300">
+          Follow these detailed steps to get started with ArteryX and perform artery extraction on your medical imaging data:
+        </p>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold text-red-500">Step 1: Installation</h3>
+            <p className="text-lg text-gray-300">
+              Download ArteryX v1.0 from the Downloads tab for your operating system (Windows, Unix, or Mac). Run the installer and follow the on-screen instructions. Ensure you have at least 2GB of free disk space and a compatible GPU for optimal performance.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-red-500">Step 2: Preparing Your Data</h3>
+            <p className="text-lg text-gray-300">
+              ArteryX supports DICOM and NIfTI formats. Convert your 3D medical imaging data into one of these formats using tools like 3D Slicer or ITK-SNAP. Ensure your data resolution is at least 512x512x512 for best results.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-red-500">Step 3: Loading and Preprocessing</h3>
+            <p className="text-lg text-gray-300">
+              Launch ArteryX and click "File > Import Data". Select your imaging file and wait for the data to load. Use the preprocessing tools to adjust contrast and remove noise. Recommended settings: Contrast Enhancement = 1.5, Noise Reduction Filter = Gaussian (sigma = 1.0).
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-red-500">Step 4: Artery Segmentation</h3>
+            <p className="text-lg text-gray-300">
+              Navigate to the "Segmentation" tab. Select "Artery Extraction" and choose the "Adaptive Thresholding" algorithm. Adjust the threshold slider until the arterial structures are clearly highlighted (typical range: 150-200 HU for CT scans). Click "Run" to start the segmentation process.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-red-500">Step 5: 3D Visualization</h3>
+            <p className="text-lg text-gray-300">
+              Once segmentation is complete, switch to the "3D View" tab. Use the mouse to rotate and zoom into the arterial model. Adjust the rendering settings (e.g., opacity = 0.8, color mapping = Red-Green) for better visualization.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold text-red-500">Step 6: Exporting Results</h3>
+            <p className="text-lg text-gray-300">
+              Go to "File > Export" to save your segmented arteries as a 3D model (STL format) or as a dataset (CSV format for centerline coordinates). You can also export screenshots of the 3D view for presentations by selecting "Export Image".
+            </p>
+          </div>
+        </div>
+        <p className="text-lg mt-6 text-gray-300">
+          For advanced usage, refer to the user manual included in the download package or contact our support team at support@arteryx.com.
+        </p>
+      </div>
+    );
+
+    // Updated Downloads Tab Component with Dummy Links
+    const Downloads = () => (
+      <div className="bg-gray-900 text-white p-10 min-h-screen">
+        <h2 className="text-4xl font-bold mb-6 text-yellow-400">Downloads for ArteryX v1.0</h2>
+        <p className="text-lg mb-4 text-gray-300">
+          Download ArteryX v1.0 for your operating system below. Each package includes the software, user manual, and sample datasets to get you started.
+        </p>
+        <div className="space-y-6">
+          <div>
+            <p className="text-lg text-gray-300">ArteryX v1.0 (Windows)</p>
+            <p className="text-sm text-gray-400 mb-2">Size: 450 MB | Requirements: Windows 10 or later, 8GB RAM, GPU with 2GB VRAM</p>
+            <a href="https://arteryx.com/downloads/windows-v1.0" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 inline-block">
+              Download for Windows
+            </a>
+          </div>
+          <div>
+            <p className="text-lg text-gray-300">ArteryX v1.0 (Unix)</p>
+            <p className="text-sm text-gray-400 mb-2">Size: 420 MB | Requirements: Ubuntu 18.04 or later, 8GB RAM, GPU with 2GB VRAM</p>
+            <a href="https://arteryx.com/downloads/unix-v1.0" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 inline-block">
+              Download for Unix
+            </a>
+          </div>
+          <div>
+            <p className="text-lg text-gray-300">ArteryX v1.0 (MacOS)</p>
+            <p className="text-sm text-gray-400 mb-2">Size: 460 MB | Requirements: macOS 11.0 or later, 8GB RAM, GPU with 2GB VRAM</p>
+            <a href="https://arteryx.com/downloads/mac-v1.0" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 inline-block">
+              Download for MacOS
+            </a>
+          </div>
+        </div>
+        <p className="text-lg mt-6 text-gray-300">
+          Need help with installation? Check the Tutorial tab or email us at support@arteryx.com.
+        </p>
+      </div>
+    );
+
+    // Main App Component
+    const App = () => {
+      const [activeTab, setActiveTab] = useState('Home');
+
+      return (
+        <div className="font-sans">
+          <NavBar />
+          {activeTab === 'Home' && <Home />}
+          {activeTab === 'About' && <About />}
+          {activeTab === 'Tutorial' && <Tutorial />}
+          {activeTab === 'Downloads' && <Downloads />}
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
