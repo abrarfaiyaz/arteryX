@@ -164,7 +164,7 @@
     // Tutorial Tab Component (Enhanced Mobile Responsiveness)
     const Tutorial = () => (
       <div className="bg-gray-900 text-white p-4 sm:p-10 min-h-screen">
-        <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Tutorial for ArteryX v1.0</h2>
+        <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Tutorial for ArteryX v1.0 (ScreenShots will be added soon)</h2>
         <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
           Follow these detailed steps to get started with ArteryX and perform artery extraction on your MRA data:
         </p>
@@ -184,25 +184,26 @@
           <div>
             <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 3: Loading and Preprocessing</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              Launch ArteryX and input subject and session name in the following format- [SUBJECTNAME/SESSION] eg. RN009/bsl , The toolbox will pop-up configuration window (if one is not already set) and ask for location of the BIDS NIFTY directory of the subject. Select the directory and the toolbox will start analyzing the data.
+              Launch ArteryX and input subject and session name in the following format- [SUBJECTNAME/SESSION] eg. RN009/bsl , The toolbox will pop-up configuration window (if one is not already set) and ask for location of the BIDS NIFTY directory of the subjects. Select the directory and the toolbox will start analyzing the data.
             </p>
           </div>
           <div>
             <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 4: Artery Segmentation</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              Navigate to the "Segmentation" tab. Select "Artery Extraction" and choose the "Adaptive Thresholding" algorithm. Adjust the threshold slider until the arterial structures are clearly highlighted (typical range: 150-200 HU for CT scans). Click "Run" to start the segmentation process.
+              Once the data is ready, the toolbox does unsupervised segmentaion, with the default parameters for Expectation Maximization.
             </p>
           </div>
           <div>
             <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 5: 3D Visualization</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              Once segmentation is complete, ensure it looks good with the code provided in the terminal console. Click on the next step "3D Viewer" link. Use the mouse to rotate and zoom into the arterial model. Adjust the rendering settings (e.g., node-size = 0.8 with +/-) for better visualization. Landmark the nodes switching to node tab at the bottom right corner of the screen. 
+              Once segmentation is complete, ensure it looks good with the code provided in the terminal console. Then click on the next step. Use the mouse to rotate and zoom into the arterial model. 
+              Adjust the rendering settings (e.g., node-size = 0.8 with +/-) for better visualization. Landmark the nodes switching to node tab at the bottom right corner of the screen. 
             </p>
           </div>
           <div>
             <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 6: Exporting Results</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-             Once the landmarking is complete, hit Control+S to save the landmarkings as JSON and load this file to complete the rest of the feature extraction.
+             Once the landmarking is complete, hit Control+S to save/download the landmarkings as a JSON and then load this file to matlab app-let. The toolbox will handle the rest and finally an "[SubjName]_ArterX.csv" file will be produced containing features for each arteries.
             </p>
           </div>
         </div>
