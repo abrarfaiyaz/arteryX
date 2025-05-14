@@ -181,20 +181,29 @@
               ArteryX works directly with NIfTI formats that are structured in BIDS directory format. Convert your 3D MRA data into NIFTI using dcm2niix and remove the skull extraction with bet2 (in fsl toolbox). ArteryX has been tested for the following resolution - 0.52x0.52x0.5; 0.26x0.26x0.5; 0.52x0.52x0.8.
             </p>
           </div>
+           <div className="mt-6 sm:mt-8">
+            <h3 className="text-base sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3"> Step 3.1: Running Artery X</h3>
+            <p className="text-xs sm:text-base text-gray-300">
+              After moving to the installation directory, run the following on your Terminal. Making sure the location for Matlab is correct for your case.
+            </p>
+            <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto">
+              {`./run_ArteryX.sh /Applications/MATLAB_R2024b.app`}
+            </pre>
+          </div>
           <div>
-            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 3: Loading and Preprocessing</h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 3.2: Loading and Preprocessing</h3>
             <p className="text-sm sm:text-lg text-gray-300">
               Launch ArteryX and input subject and session name in the following format- [SUBJECTNAME/SESSION] eg. RN009/bsl , The toolbox will pop-up configuration window (if one is not already set) and ask for location of the BIDS NIFTY directory of the subjects. Select the directory and the toolbox will start analyzing the data.
             </p>
           </div>
           <div>
-            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 4: Artery Segmentation</h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 4: Artery Segmentation (ArteryX takes care of this step) </h3>
             <p className="text-sm sm:text-lg text-gray-300">
               Once the data is ready, the toolbox does unsupervised segmentaion, with the default parameters for Expectation Maximization.
             </p>
           </div>
           <div>
-            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 5: 3D Visualization</h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 5: Landmarking and 3D visualization</h3>
             <p className="text-sm sm:text-lg text-gray-300">
               Once segmentation is complete, ensure it looks good with the code provided in the terminal console. Then click on the next step. Use the mouse to rotate and zoom into the arterial model. 
               Adjust the rendering settings (e.g., node-size = 0.8 with +/-) for better visualization. Landmark the nodes switching to node tab at the bottom right corner of the screen. 
