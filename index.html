@@ -214,7 +214,52 @@
     );
 
     // Downloads Tab Component (Enhanced Mobile Responsiveness)
-    const Downloads = () => (
+    // Downloads Tab Component
+const Downloads = () => (
+  <div className="bg-gray-900 text-white p-4 sm:p-10 min-h-screen">
+    <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Downloads for ArteryX v1.0</h2>
+    <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
+      Download ArteryX v1.0 for your operating system below. Each package includes the software, user manual, and sample datasets to get you started.
+    </p>
+    <div className="space-y-6">
+      <div>
+        <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (Windows)</p>
+        <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 12.5 MB | Requirements: Windows 10 or later, 16GB RAM</p>
+        <span className="text-gray-500 italic text-xs sm:text-base">Coming Soon</span>
+      </div>
+      <div>
+        <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (Unix)</p>
+        <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 10 MB | Requirements: Ubuntu 18.04 or later, 16GB RAM</p>
+        <span className="text-gray-500 italic text-xs sm:text-base">Coming Soon</span>
+      </div>
+      <div>
+        <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (MacOS)</p>
+        <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 12 MB | Requirements: macOS 11.0 or later, 16GB RAM</p>
+        <a href="https://rochester.box.com/s/zf9yb4autxrb8glzvcl9dd25pm03ptzx" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
+          Download for MacOS
+        </a>
+      </div>
+    </div>
+    <div className="mt-6 sm:mt-8">
+      <h3 className="text-base sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3">Citation</h3>
+      <p className="text-xs sm:text-base text-gray-300">
+        If you use ArteryX in your research, please cite the following work:
+      </p>
+      <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto">
+        {`@inproceedings{faiyaz_arteryx_2025,
+  title={ArteryX: Enhancing Sensitivity in Brain Artery Feature Extraction Using Arterial Graph Network},
+  author={Faiyaz, Abrar and Hoang, Nhat and Schifitto, Giovanni and Uddin, Md Nasir},
+  booktitle={Proc. Intl. Soc. Mag. Reson. Med. 33},
+  year={2025}
+}`}
+      </pre>
+    </div>
+    <p className="text-sm sm:text-lg mt-4 sm:mt-6 text-gray-300">
+      Need help with installation? Check the Tutorial tab or email us at support@arteryx.com.
+    </p>
+  </div>
+);
+{/*     const Downloads = () => (
       <div className="bg-gray-900 text-white p-4 sm:p-10 min-h-screen">
         <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Downloads for ArteryX v1.0</h2>
         <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
@@ -243,7 +288,7 @@
           Need help with installation? Check the Tutorial (Youtube Tutorials will be uploaded shortly) tab or email me at faiyaz_abrar@icloud.com.
         </p>
       </div>
-    );
+    ); */}
 
     // Main App Component
     const App = () => {
