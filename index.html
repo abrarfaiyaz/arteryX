@@ -173,6 +173,11 @@
             <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 1: Installation</h3>
             <p className="text-sm sm:text-lg text-gray-300">
               Download ArteryX v1.0 from the Downloads tab for your operating system (Windows, Unix, or Mac). Run the webinstaller and follow the on-screen instructions. Matlab runtime needs to be configured with the readme.txt instructions with the installer. Ensure you have at least 2-3GB of free disk space and a compatible GPU for optimal performance.
+
+              For Mac Users make sure the quarantine attribute is removed-
+               <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto">
+                {`xattr -d com.apple.quarantine ArteryX_webinstaller_macOS.app`}
+              </pre>
             </p>
           </div>
           <div>
@@ -187,6 +192,7 @@
               After moving to the installation directory, run the following on your Terminal. Making sure the location for Matlab is correct for your case.
             </p>
             <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto">
+              
               {`./run_ArteryX.sh /Applications/MATLAB_R2024b.app`}
             </pre>
           </div>
@@ -244,7 +250,7 @@ const Downloads = () => (
       <div>
         <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (MacOS)</p>
         <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 12 MB | Requirements: macOS 11.0 or later, 16GB RAM</p>
-        <a href="https://rochester.box.com/s/zf9yb4autxrb8glzvcl9dd25pm03ptzx" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
+        <a href="https://rochester.box.com/s/pr9f22ony9by90rssmi4pqe5hsmb4r3e" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
           Download for MacOS
         </a>
       </div>
