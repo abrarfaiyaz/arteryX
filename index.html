@@ -38,7 +38,8 @@
     };
 
     // Home Tab Component (Enhanced Mobile Responsiveness)
-    const Home = () => (
+    // FIX: Added { setActiveTab } as a prop so the button works
+    const Home = ({ setActiveTab }) => (
       <div className="relative text-white p-4 sm:p-10 min-h-screen bg-gray-900 flex flex-col items-center justify-center">
         <div className="text-center z-10">
           <h2 className="text-2xl sm:text-5xl font-bold mb-4 sm:mb-6 text-yellow-400">Welcome to ArteryX v1.0</h2>
@@ -79,8 +80,8 @@
         <p className="text-sm sm:text-lg mb-4 sm:mb-6 text-gray-300">
           Version 1.0 offers robust features for artery segmentation, 3D visualization, and data export, making it an essential tool for neurovascular research.
         </p>
-     
-    
+      
+   
       <div className="text-center mb-6 sm:mb-10">
         <h3 className="text-base sm:text-xl font-semibold text-red-500 mb-3 sm:mb-4">Key Differences:</h3>
         <img 
@@ -236,53 +237,64 @@
       </div>
     );
 
-    // Downloads Tab Component (Enhanced Mobile Responsiveness)
     // Downloads Tab Component
-const Downloads = () => (
-  <div className="bg-gray-900 text-white p-4 sm:p-10 min-h-screen">
-    <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Downloads for ArteryX v1.1</h2>
-    <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
-      Download ArteryX v1.1 for your operating system below. The package includes the software and user manual (readme.txt). Sample BIDS datasets can be downloaded from <a href="https://openneuro.org/datasets/ds003949/versions/1.0.1">OpenNeuro</a> to get you started.
-    </p>
-    <div className="space-y-6">
-      <div>
-        <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.1 (Windows)</p>
-        <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 38 MB | Requirements: Windows 10 or later, 16GB RAM</p>
-        <a href="https://rochester.box.com/s/arwpg53d983fxtg3zf2cgs81fpkprwgw" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
-          Download for Windows   
-        </a>
-      </div>
-      <div>
-        <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (Linux)</p>
-        <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 6 MB | Requirements: Ubuntu 18.04 or later, 16GB RAM</p>
-        <a href="https://rochester.box.com/s/wiudksz289yk48wx2069kxr5l6c8uym2" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
-          Download for Linux 
-        </a>
-      </div>
-      <div>
-        <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.1 (MacOS)</p>
-        <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 5 MB | Requirements: macOS 11.0 or later, 16GB RAM</p>
-        <a href="https://rochester.box.com/s/6v0v8fms3etlodcqltkysa42uykloo55" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
-          Download for MacOS
-        </a>
-      </div>
-    </div>
-    <div className="mt-6 sm:mt-8">
-      <h3 className="text-base sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3">Citation</h3>
-      <p className="text-xs sm:text-base text-gray-300">
-        If you use ArteryX in your research, please cite the following work:
-      </p>
-      <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto">
-        {`@inproceedings{faiyaz_arteryx_2025,
+    const Downloads = () => (
+      <div className="bg-gray-900 text-white p-4 sm:p-10 min-h-screen">
+        <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Downloads for ArteryX v1.1</h2>
+        <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
+          Download ArteryX v1.1 for your operating system below. The package includes the software and user manual (readme.txt). Sample BIDS datasets can be downloaded from <a href="https://openneuro.org/datasets/ds003949/versions/1.0.1" className="text-yellow-400 hover:underline">OpenNeuro</a> to get you started.
+        </p>
+        <div className="space-y-6">
+          <div>
+            <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.1 (Windows)</p>
+            <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 38 MB | Requirements: Windows 10 or later, 16GB RAM</p>
+            <a href="https://rochester.box.com/s/arwpg53d983fxtg3zf2cgs81fpkprwgw" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
+              Download for Windows   
+            </a>
+          </div>
+          <div>
+            <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (Linux)</p>
+            <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 6 MB | Requirements: Ubuntu 18.04 or later, 16GB RAM</p>
+            <a href="https://rochester.box.com/s/wiudksz289yk48wx2069kxr5l6c8uym2" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
+              Download for Linux 
+            </a>
+          </div>
+          <div>
+            <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.1 (MacOS)</p>
+            <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 5 MB | Requirements: macOS 11.0 or later, 16GB RAM</p>
+            <a href="https://rochester.box.com/s/6v0v8fms3etlodcqltkysa42uykloo55" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
+              Download for MacOS
+            </a>
+          </div>
+        </div>
+
+        {/* FIX: Added License Section Here */}
+        <div className="mt-8 sm:mt-10 bg-gray-800 p-4 rounded-lg border border-gray-700">
+          <h3 className="text-base sm:text-xl font-semibold text-yellow-400 mb-2">Software License</h3>
+          <p className="text-xs sm:text-base text-gray-300 mb-3">
+            ArteryX is open-source and released under the MIT License, permitting use, modification, and distribution. Please review the terms before using or redistributing the software.
+          </p>
+          <a href="LICENSE.txt" target="_blank" rel="noopener noreferrer" className="bg-gray-700 hover:bg-gray-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base border border-gray-500">
+            📄 View LICENSE.txt
+          </a>
+        </div>
+
+        <div className="mt-6 sm:mt-8">
+          <h3 className="text-base sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3">Citation</h3>
+          <p className="text-xs sm:text-base text-gray-300">
+            If you use ArteryX in your research, please cite the following work:
+          </p>
+          <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto">
+            {`@inproceedings{faiyaz_arteryx_2025,
   title={ArteryX: Enhancing Sensitivity in Brain Artery Feature Extraction Using Arterial Graph Network},
   author={Faiyaz, Abrar and Hoang, Nhat and Schifitto, Giovanni and Uddin, Md Nasir},
   booktitle={Proc. Intl. Soc. Mag. Reson. Med. 33},
   year={2025}
 }`}
-      </pre>
+          </pre>
 
-      <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto">
-        {`@misc{faiyaz2025arteryxadvancingbrainartery,
+          <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto mt-4">
+            {`@misc{faiyaz2025arteryxadvancingbrainartery,
       title={ArteryX: Advancing Brain Artery Feature Extraction with Vessel-Fused Networks and a Robust Validation Framework}, 
       author={Abrar Faiyaz and Nhat Hoang and Giovanni Schifitto and Md Nasir Uddin},
       year={2025},
@@ -291,44 +303,13 @@ const Downloads = () => (
       primaryClass={eess.IV},
       url={https://arxiv.org/abs/2507.07920}, 
 }`}
-      </pre>
-      
-    </div>
-    <p className="text-sm sm:text-lg mt-4 sm:mt-6 text-gray-300">
-      Need help with installation? Check the Tutorial tab or email at faiyaz_abrar@icloud.com
-    </p>
-  </div>
-);
-{/*     const Downloads = () => (
-      <div className="bg-gray-900 text-white p-4 sm:p-10 min-h-screen">
-        <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Downloads for ArteryX v1.0</h2>
-        <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
-          Download ArteryX v1.0 for your operating system below. Each package includes the software, and readme file. The sample datasets will be included soon to get you started. 
-        </p>
-        <div className="space-y-6">
-          <div>
-            <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (Windows)</p>
-            <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 12.5 MB | Requirements: Windows 10 or later, 16GB RAM</p>
-            <span className="text-gray-500 italic text-xs sm:text-base">Coming Soon</span>
-          </div>
-          <div>
-            <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (Unix)</p>
-            <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 10 MB | Requirements: Ubuntu 18.04 or later, 16GB RAM</p>
-            <span className="text-gray-500 italic text-xs sm:text-base">Coming Soon</span>
-          </div>
-          <div>
-            <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (MacOS)</p>
-            <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 12 MB | Requirements: macOS 11.0 or later, 16GB RAM</p>
-            <a href="https://rochester.box.com/s/zf9yb4autxrb8glzvcl9dd25pm03ptzx" className="bg-red-500 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
-              Download for MacOS
-            </a>
-          </div>
+          </pre>
         </div>
         <p className="text-sm sm:text-lg mt-4 sm:mt-6 text-gray-300">
-          Need help with installation? Check the Tutorial (Youtube Tutorials will be uploaded shortly) tab or email me at faiyaz_abrar@icloud.com.
+          Need help with installation? Check the Tutorial tab or email at faiyaz_abrar@icloud.com
         </p>
       </div>
-    ); */}
+    );
 
     // Main App Component
     const App = () => {
@@ -337,7 +318,8 @@ const Downloads = () => (
       return (
         <div className="font-sans">
           <NavBar activeTab={activeTab} setActiveTab={setActiveTab} />
-          {activeTab === 'Home' && <Home />}
+          {/* FIX: Passed setActiveTab to Home component */}
+          {activeTab === 'Home' && <Home setActiveTab={setActiveTab} />}
           {activeTab === 'About' && <About />}
           {activeTab === 'Tutorial' && <Tutorial />}
           {activeTab === 'Downloads' && <Downloads />}
