@@ -42,7 +42,7 @@
     const Home = ({ setActiveTab }) => (
       <div className="relative text-white p-4 sm:p-10 min-h-screen bg-gray-900 flex flex-col items-center justify-center">
         <div className="text-center z-10">
-          <h2 className="text-2xl sm:text-5xl font-bold mb-4 sm:mb-6 text-yellow-400">Welcome to ArteryX v1</h2>
+          <h2 className="text-2xl sm:text-5xl font-bold mb-4 sm:mb-6 text-yellow-400">Welcome to ArteryX v1.4</h2>
           <p className="text-sm sm:text-xl mb-4 sm:mb-8 text-gray-300">Advanced & Practical Artery Feature Extraction Toolbox for MR Angiograms</p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8">
             <img 
@@ -78,7 +78,7 @@
           With advanced algorithms and an intuitive interface, ArteryX helps researchers and medical professionals analyze vascular networks with precision.
         </p>
         <p className="text-sm sm:text-lg mb-4 sm:mb-6 text-gray-300">
-          Version 1.0 offers robust features for artery segmentation, 3D visualization, and data export, making it an essential tool for neurovascular research.
+          Version 1.4 is the original publication release, with official Windows and Mac builds for artery segmentation, 3D visualization, and data export.
         </p>
       
    
@@ -165,37 +165,70 @@
     // Tutorial Tab Component (Enhanced Mobile Responsiveness)
     const Tutorial = () => (
       <div className="bg-gray-900 text-white p-4 sm:p-10 min-h-screen">
-        <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Tutorial for ArteryX v1.0 (for Linux and MacOS)</h2>
-        {/* <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
-          For Linux OS, follow the youtube tutorial guide, scroll further down to find the guide for MacOS-
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/P293gHBlbiI?si=nFOGgA1Q52p4jb9T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </p> */}
+        <h2 className="text-2xl sm:text-4xl font-bold mb-4 sm:mb-6 text-yellow-400">Tutorial for ArteryX v1.4</h2>
         <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
-          For MacOS, follow these detailed steps to get started with ArteryX and perform artery extraction on your MRA data-
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=FDcVb23fL1j6G7rq&amp;list=PLvROAo2skjvikBCK_NZ8SJ4aMfSioTlc7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          ArteryX v1.4 is the official original publication version for Windows and Mac. The workflow is the same across platforms after installation: prepare BIDS-formatted NIfTI data, launch ArteryX, inspect segmentation, landmark the arterial graph, and export artery-level features.
         </p>
+        <div className="mb-6 sm:mb-8">
+          <h3 className="text-base sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3">Platform Setup Summary</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+              <h4 className="text-sm sm:text-lg font-semibold text-yellow-400 mb-2">Windows</h4>
+              <p className="text-xs sm:text-base text-gray-300 mb-3">
+                Download the official v1.4 Windows package, install the MATLAB Runtime as described in the included readme, and compile or place the required FSL BET2 executable before preprocessing.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <a href="https://rochester.box.com/s/4qk7njhzlfhokv6tteguteqjpt7x7yoq" target="_blank" rel="noopener noreferrer" className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-3 rounded-lg transition duration-300 inline-block text-xs sm:text-sm">
+                  Download Windows v1.4
+                </a>
+                <a href="bet2-windows-build-tutorial.html" target="_blank" rel="noopener noreferrer" className="bg-gray-700 hover:bg-red-600 text-white font-semibold py-2 px-3 rounded-lg transition duration-300 inline-block text-xs sm:text-sm">
+                  BET2 Windows Tutorial
+                </a>
+              </div>
+            </div>
+            <div className="bg-gray-800 border border-gray-700 rounded-lg p-4">
+              <h4 className="text-sm sm:text-lg font-semibold text-yellow-400 mb-2">Mac Intel and Apple Silicon</h4>
+              <p className="text-xs sm:text-base text-gray-300 mb-3">
+                Download the official v1.4 Mac package for Intel or Apple Silicon. General FSL installation on macOS provides BET2, so no separate BET2 compilation is needed.
+              </p>
+              <a href="https://rochester.box.com/s/xl0am406wuwzbk75ix2jacpj0tsa7bpk" target="_blank" rel="noopener noreferrer" className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-3 rounded-lg transition duration-300 inline-block text-xs sm:text-sm">
+                Download Mac v1.4
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="mb-6 sm:mb-8">
+          <h3 className="text-base sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3">Video Walkthrough</h3>
+          <p className="text-sm sm:text-lg mb-3 sm:mb-4 text-gray-300">
+            Follow the walkthrough below to get started with ArteryX and perform artery extraction on your MRA data.
+          </p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=FDcVb23fL1j6G7rq&amp;list=PLvROAo2skjvikBCK_NZ8SJ4aMfSioTlc7" title="YouTube video player" frameBorder="0" className="w-full max-w-[350px] sm:max-w-3xl h-48 sm:h-96 rounded-lg shadow-md" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+        </div>
         <div className="space-y-4 sm:space-y-6">
           <div>
-            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 1: Installation MacOS</h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 1: Install ArteryX v1.4</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              Download ArteryX v1.0 from the Downloads tab for your operating system (Windows, Unix, or Mac). Run the webinstaller and follow the on-screen instructions. Matlab runtime needs to be configured with the readme.txt instructions with the installer. Ensure you have at least 2-3GB of free disk space and a compatible GPU for optimal performance.
+              Download ArteryX v1.4 from the Downloads tab for your operating system. Run the installer and follow the on-screen instructions. MATLAB Runtime needs to be configured with the readme.txt instructions included with the installer. Ensure you have at least 2-3GB of free disk space and a compatible GPU for optimal performance.
 
-              For Mac Users make sure the quarantine attribute is removed-
+              For Mac users, make sure the quarantine attribute is removed if macOS blocks the app after download-
                <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto">
                 {`xattr -d com.apple.quarantine ArteryX_MacOS_installer.app`}
               </pre>
             </p>
+            <p className="text-sm sm:text-lg text-gray-300 mt-3">
+              Windows users must also make sure the fslbet2 compilation requirement is satisfied. Follow the dedicated <a href="bet2-windows-build-tutorial.html" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">BET2 Windows build tutorial</a>. Mac users can use the standard FSL installation, which includes bet2.
+            </p>
           </div>
           <div>
-            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 2: Preparing Your Data</h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 2: Prepare Your Data</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              ArteryX works directly with NIfTI formats that are structured in BIDS directory format. Convert your 3D MRA data into NIFTI using dcm2niix and remove the skull extraction with bet2 (in fsl toolbox). ArteryX has been tested for the following resolution - 0.52x0.52x0.5; 0.26x0.26x0.5; 0.52x0.52x0.8.
+              ArteryX works directly with NIfTI files structured in BIDS directory format. Convert your 3D MRA data into NIfTI using dcm2niix and perform skull extraction with bet2 in the FSL toolbox. ArteryX has been tested for the following resolutions: 0.52x0.52x0.5; 0.26x0.26x0.5; 0.52x0.52x0.8.
             </p>
           </div>
            <div className="mt-6 sm:mt-8">
-            <h3 className="text-base sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3"> Step 3.1: Running Artery X</h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3">Step 3: Run ArteryX</h3>
             <p className="text-xs sm:text-base text-gray-300">
-              After moving to the installation directory, run the following on your Terminal. Making sure the location for MATLAB RUNTIME is correct for your case.
+              After moving to the installation directory, run the following in your terminal. Make sure the MATLAB Runtime location is correct for your system.
             </p>
             <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto">
               
@@ -203,31 +236,31 @@
             </pre>
           </div>
           <div>
-            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 3.2: Loading and Preprocessing</h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 4: Load and Preprocess</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              Launch ArteryX and input subject and session name in the following format- [SUBJECTNAME/SESSION] eg. RN009/bsl , The toolbox will pop-up configuration window (if one is not already set) and ask for location of the BIDS NIFTY directory of the subjects. Select the directory and the toolbox will start analyzing the data.
+              Launch ArteryX and input the subject and session name in the following format: [SUBJECTNAME/SESSION], for example RN009/bsl. The toolbox will open a configuration window if one is not already set and ask for the location of the BIDS NIfTI directory. Select the directory and the toolbox will start analyzing the data.
             </p>
           </div>
           <div>
-            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 4: Artery Segmentation (ArteryX takes care of this step) </h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 5: Artery Segmentation (ArteryX takes care of this step)</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-              Once the data is ready, the toolbox does unsupervised segmentaion, with the default parameters for Expectation Maximization.
+              Once the data is ready, the toolbox performs unsupervised segmentation with the default parameters for Expectation Maximization.
             </p>
           </div>
           <div>
-            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 5: Landmarking and 3D visualization</h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 6: Landmarking and 3D Visualization</h3>
             <p className="text-sm sm:text-lg text-gray-300">
               Once segmentation is complete, ensure it looks good with the code provided in the terminal console. Then click on the next step. Use the mouse to rotate and zoom into the arterial model. 
               Adjust the rendering settings (e.g., node-size = 0.8 with +/-) for better visualization. Landmark the nodes switching to node tab at the bottom right corner of the screen. 
 
-              PLease watch the following video for the anatomical details, landmarking will be made easier when you take a peek at the Figure-5 of <a href="https://arxiv.org/pdf/2507.07920" > <u> ArteryX Arxiv Paper.</u></a>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/QYmApwTicHs?si=UbVhpvHcX4yzHu-O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              Please watch the following video for the anatomical details. Landmarking will be easier after reviewing Figure 5 of the <a href="https://arxiv.org/pdf/2507.07920" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">ArteryX arXiv paper</a>.
             </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/QYmApwTicHs?si=UbVhpvHcX4yzHu-O" title="YouTube video player" frameBorder="0" className="w-full max-w-[350px] sm:max-w-3xl h-48 sm:h-96 rounded-lg shadow-md mt-3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
           </div>
           <div>
-            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 6: Exporting Results</h3>
+            <h3 className="text-base sm:text-xl font-semibold text-red-500">Step 7: Export Results</h3>
             <p className="text-sm sm:text-lg text-gray-300">
-             Once the landmarking is complete, hit Control+S to save/download the landmarkings as a JSON and then load this file to matlab app-let. The toolbox will handle the rest and finally an "[SubjName]_ArterX.csv" file will be produced containing features for each arteries.
+             Once landmarking is complete, hit Control+S to save/download the landmarkings as a JSON file and then load this file into the MATLAB applet. The toolbox will handle the rest and produce a "[SubjName]_ArterX.csv" file containing features for each artery.
             </p>
           </div>
         </div>
@@ -245,25 +278,32 @@
           Download ArteryX for your operating system below. The package includes the software and user manual (readme.txt). Sample BIDS datasets can be downloaded from shared example BIDS formatted <a href="https://rochester.box.com/s/qd274o93qupmi7dadnyby0v9yof16cp7" className="text-yellow-400 hover:underline">TopBrain Dataset</a> to get you started.
         </p>
 
-        {/* HIGHLIGHTED VERSION: v1.3 MacOS (M-Chip) */}
+        {/* HIGHLIGHTED VERSION: v1.4 Official Publication Release */}
         <div className="mb-8 p-5 sm:p-6 bg-gray-800 border-2 border-yellow-400 rounded-lg shadow-lg relative overflow-hidden">
           <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 text-xs sm:text-sm font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-            Official (UNDER REVIEW FOR PUBLICATION) Version
+            Official Publication Version
           </div>
-          <h3 className="text-lg sm:text-2xl font-bold text-white mb-2 mt-4 sm:mt-0">ArteryX v1.3 (MacOS - Apple Silicon)</h3>
+          <h3 className="text-lg sm:text-2xl font-bold text-white mb-2 mt-4 sm:mt-0">ArteryX v1.4</h3>
           <p className="text-sm sm:text-base text-gray-300 mb-3">
-            This is the official compiled version associated with our recent publication. It is fully optimized for Apple M-series chips (M1/M2/M3).
+            This is the official original publication release for Windows and Mac. The Mac package supports both Intel and Apple Silicon systems.
           </p>
-          <p className="text-xs sm:text-sm text-gray-400 mb-4">Size: ~5 MB | Requirements: macOS 11.0 or later (Apple Silicon), 16GB RAM</p>
+          <p className="text-xs sm:text-sm text-gray-400 mb-4">Requirements: Windows 10 or later, or macOS 11.0 or later; 16GB RAM recommended</p>
           
-          {/* PLACEHOLDER LINK HERE */}
-          <a href="https://rochester.box.com/shared/static/de9lv3l1bsfm1ouhv9qj03mw8qh1tq59.zip" className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition duration-300 inline-block text-sm sm:text-base shadow-md">
-            Download v1.3 for MacOS (M-Chip)
-          </a>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://rochester.box.com/s/4qk7njhzlfhokv6tteguteqjpt7x7yoq" target="_blank" rel="noopener noreferrer" className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition duration-300 inline-block text-sm sm:text-base shadow-md">
+              Download v1.4 for Windows
+            </a>
+            <a href="https://rochester.box.com/s/xl0am406wuwzbk75ix2jacpj0tsa7bpk" target="_blank" rel="noopener noreferrer" className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-2 px-4 sm:py-3 sm:px-6 rounded-lg transition duration-300 inline-block text-sm sm:text-base shadow-md">
+              Download v1.4 for Mac
+            </a>
+          </div>
+          <p className="text-xs sm:text-sm text-gray-400 mt-4">
+            Windows users must compile or provide fslbet2 before preprocessing. Follow the <a href="bet2-windows-build-tutorial.html" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">BET2 Windows build tutorial</a>. On Mac, a general FSL installation provides bet2.
+          </p>
         </div>
 
         {/* OTHER VERSIONS */}
-        <h3 className="text-lg sm:text-xl font-semibold text-red-500 mb-4 border-b border-gray-700 pb-2">Other Versions & Architectures</h3>
+        <h3 className="text-lg sm:text-xl font-semibold text-red-500 mb-4 border-b border-gray-700 pb-2">Previous Versions</h3>
         <div className="space-y-6">
           <div>
             <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.1 (Windows)</p>
@@ -272,13 +312,6 @@
               Download for Windows   
             </a>
           </div>
-          {/* <div>
-            <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.0 (Linux)</p>
-            <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 6 MB | Requirements: Ubuntu 18.04 or later, 16GB RAM</p>
-            <a href="https://rochester.box.com/s/wiudksz289yk48wx2069kxr5l6c8uym2" className="bg-gray-700 hover:bg-red-600 text-white font-semibold py-1 px-3 sm:py-2 sm:px-4 rounded-lg transition duration-300 inline-block text-xs sm:text-base">
-              Download for Linux 
-            </a>
-          </div> */}
           <div>
             <p className="text-sm sm:text-lg text-gray-300">ArteryX v1.1 (MacOS - Intel)</p>
             <p className="text-xs sm:text-base text-gray-400 mb-2">Size: 5 MB | Requirements: macOS 11.0 or later (Intel architecture), 16GB RAM</p>
@@ -315,13 +348,14 @@
           </pre>
 
           <pre className="bg-gray-800 text-sm sm:text-base text-gray-200 p-2 sm:p-3 rounded-lg overflow-x-auto mt-4">
-            {`@misc{faiyaz2025arteryxadvancingbrainartery,
-      title={ArteryX: Advancing Brain Artery Feature Extraction with Vessel-Fused Networks and a Robust Validation Framework}, 
+            {`@misc{faiyaz2025arteryxreliableendtoend,
+      title={ArteryX: A Reliable End-to-End Toolbox for Standardized Intracranial Artery Feature Extraction from 3D TOF-MRA}, 
       author={Abrar Faiyaz and Nhat Hoang and Giovanni Schifitto and Md Nasir Uddin},
       year={2025},
       eprint={2507.07920},
       archivePrefix={arXiv},
       primaryClass={eess.IV},
+      doi={10.48550/arXiv.2507.07920},
       url={https://arxiv.org/abs/2507.07920}, 
 }`}
           </pre>
